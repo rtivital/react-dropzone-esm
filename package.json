@@ -8,7 +8,7 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./types/react-dropzone.d.ts",
+        "types": "./types/react-dropzone.d.mts",
         "default": "./dist/esm/index.mjs"
       },
       "require": {
