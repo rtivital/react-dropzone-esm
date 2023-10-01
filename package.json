@@ -1,7 +1,7 @@
 {
   "name": "react-dropzone-esm",
   "description": "Simple HTML5 drag-drop zone with React.js",
-  "version": "14.4.0",
+  "version": "15.0.0",
   "types": "./types/react-dropzone.d.ts",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.mjs",
