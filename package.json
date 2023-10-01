@@ -20,7 +20,10 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf ./dist",
-    "build": "yarn clean && rollup -c rollup.config.mjs"
+    "build": "npm run clean && rollup -c rollup.config.mjs",
+    "release:patch": "npm run build && npm version patch && yarn publish && git push",
+    "release:minor": "npm run build && npm version minor && yarn publish && git push",
+    "release:major": "npm run build && npm version major && yarn publish && git push"
   },
   "keywords": [
     "react-component",
