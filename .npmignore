@@ -1,8 +1,6 @@
-.npmignore
-.idea
-.github
-logo/
-styleguide/
-coverage/
+src/
+.editorconfig
+.gitignore
+.nvmrc
+rollup.config.mjs
 yarn.lock
-vendor
