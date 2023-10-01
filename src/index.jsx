@@ -26,7 +26,7 @@ import {
   onDocumentDragOver,
   pickerOptionsFromAccept,
   TOO_MANY_FILES_REJECTION,
-} from "./utils/index";
+} from "./utils";
 
 /**
  * Convenience wrapper component for the `useDropzone` hook

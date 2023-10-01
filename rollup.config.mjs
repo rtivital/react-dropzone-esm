@@ -23,12 +23,7 @@ export default {
   ],
 
   plugins: [
-    esbuild({
-      // minify: true,
-      // jsx: "transform",
-      sourceMap: false,
-      target: "es2015",
-    }),
+    esbuild({ minify: true, sourceMap: false, target: "es2015" }),
     nodeExternals(),
     nodeResolve(),
     commonjs(),
