@@ -7,6 +7,20 @@ modern frameworks which use ES modules (Remix v2, newer versions of Next.js, Vit
 The package provides esm and cjs bundles. It is compatible both with modern build tools
 like Remix v2 and with older tools like Webpack 4.
 
+## Installation
+
+With yarn:
+
+```bash
+yarn add react-dropzone-esm
+```
+
+With npm:
+
+```bash
+npm install react-dropzone-esm
+```
+
 ## Differences from react-dropzone
 
 - ESM and CJS bundles
