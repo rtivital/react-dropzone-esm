@@ -1,6 +1,9 @@
 import * as React from "react";
 
-export { FileWithPath } from "file-selector";
+export interface FileWithPath extends File {
+  readonly path?: string;
+}
+
 export default function Dropzone(
   props: DropzoneProps & React.RefAttributes<DropzoneRef>
 ): JSX.Element;

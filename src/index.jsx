@@ -10,7 +10,7 @@ import React, {
   useRef,
 } from "react";
 import PropTypes from "prop-types";
-import { fromEvent } from "file-selector";
+import { fromEvent } from "./file-selector";
 import {
   acceptPropAsAcceptAttr,
   allFilesAccepted,
