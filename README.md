@@ -37,6 +37,11 @@ in any way.
 
 Documentation was removed from the forked package to simplify maintenance. [Please refer to the original package for documentation](https://react-dropzone.js.org/).
 
+## Manual tests
+
+Manual tests are performed for each new release during the development of [@mantine/dropzone](https://mantine.dev/x/dropzone/)
+package.
+
 ## Changelog
 
 - `15.0.0` – Initial release (`react-dropzone` as of end of 2023)
