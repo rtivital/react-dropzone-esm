@@ -5,7 +5,7 @@
  * Inspired by https://github.com/enyo/dropzone
  *
  * @param file {File} https://developer.mozilla.org/en-US/docs/Web/API/File
- * @param acceptedFiles {string}
+ * @param acceptedFiles {string|string[]}
  * @returns {boolean}
  */
 
@@ -14,6 +14,9 @@ export default function (file, acceptedFiles) {
     const acceptedFilesArray = Array.isArray(acceptedFiles)
       ? acceptedFiles
       : acceptedFiles.split(",");
+    if (acceptedFilesArray.length === 0) {
+      return true;
+    }
     const fileName = file.name || "";
     const mimeType = (file.type || "").toLowerCase();
     const baseMimeType = mimeType.replace(/\/.*$/, "");

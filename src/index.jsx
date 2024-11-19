@@ -67,7 +67,7 @@ const defaultProps = {
   noDrag: false,
   noDragEventsBubbling: false,
   validator: null,
-  useFsAccessApi: true,
+  useFsAccessApi: false,
   autoFocus: false,
 };
 
@@ -703,6 +703,7 @@ export function useDropzone(props = {}) {
       dispatch({
         acceptedFiles,
         fileRejections,
+        isDragReject: fileRejections.length > 0,
         type: "setFiles",
       });
 
@@ -946,7 +947,18 @@ export function useDropzone(props = {}) {
           accept: acceptAttr,
           multiple,
           type: "file",
-          style: { display: "none" },
+          style: {
+            border: 0,
+            clip: "rect(0, 0, 0, 0)",
+            clipPath: "inset(50%)",
+            height: "1px",
+            margin: "0 -1px -1px 0",
+            overflow: "hidden",
+            padding: 0,
+            position: "absolute",
+            width: "1px",
+            whiteSpace: "nowrap",
+          },
           onChange: composeHandler(composeEventHandlers(onChange, onDropCb)),
           onClick: composeHandler(
             composeEventHandlers(onClick, onInputElementClick)
@@ -1014,6 +1026,7 @@ function reducer(state, action) {
         ...state,
         acceptedFiles: action.acceptedFiles,
         fileRejections: action.fileRejections,
+        isDragReject: action.isDragReject,
       };
     case "reset":
       return {

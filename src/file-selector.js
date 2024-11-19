@@ -108,7 +108,7 @@ function toFilePromises(item) {
     return fromDirEntry(entry);
   }
 
-  return fromDataTransferItem(item);
+  return fromDataTransferItem(item, entry);
 }
 
 function flatten(items) {
@@ -121,12 +121,19 @@ function flatten(items) {
   );
 }
 
-function fromDataTransferItem(item) {
+function fromDataTransferItem(item, entry) {
+  if (typeof item.getAsFileSystemHandle === "function") {
+    return item.getAsFileSystemHandle().then(async (h) => {
+      const file = await h.getFile();
+      file.handle = h;
+      return toFileWithPath(file);
+    });
+  }
   const file = item.getAsFile();
   if (!file) {
     return Promise.reject(`${item} is not a File`);
   }
-  const fwp = toFileWithPath(file);
+  const fwp = toFileWithPath(file, entry?.fullPath ?? undefined);
   return Promise.resolve(fwp);
 }
 

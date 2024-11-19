@@ -2,6 +2,8 @@ import * as React from "react";
 
 export interface FileWithPath extends File {
   readonly path?: string;
+  readonly handle?: FileSystemFileHandle;
+  readonly relativePath?: string;
 }
 
 export default function Dropzone(
@@ -26,8 +28,8 @@ export interface FileError {
 }
 
 export interface FileRejection {
-  file: File;
-  errors: FileError[];
+  file: FileWithPath;
+  errors: readonly FileError[];
 }
 
 export type DropzoneOptions = Pick<React.HTMLProps<HTMLElement>, PropTypes> & {
@@ -54,7 +56,9 @@ export type DropzoneOptions = Pick<React.HTMLProps<HTMLElement>, PropTypes> & {
   onFileDialogCancel?: () => void;
   onFileDialogOpen?: () => void;
   onError?: (err: Error) => void;
-  validator?: <T extends File>(file: T) => FileError | FileError[] | null;
+  validator?: <T extends File>(
+    file: T
+  ) => FileError | readonly FileError[] | null;
   useFsAccessApi?: boolean;
   autoFocus?: boolean;
 };
@@ -71,8 +75,8 @@ export type DropzoneState = DropzoneRef & {
   isDragAccept: boolean;
   isDragReject: boolean;
   isFileDialogActive: boolean;
-  acceptedFiles: File[];
-  fileRejections: FileRejection[];
+  acceptedFiles: readonly FileWithPath[];
+  fileRejections: readonly FileRejection[];
   rootRef: React.RefObject<HTMLElement>;
   inputRef: React.RefObject<HTMLInputElement>;
   getRootProps: <T extends DropzoneRootProps>(props?: T) => T;
@@ -96,5 +100,5 @@ export interface DropzoneInputProps
 type PropTypes = "multiple" | "onDragEnter" | "onDragOver" | "onDragLeave";
 
 export interface Accept {
-  [key: string]: string[];
+  [key: string]: readonly string[];
 }
