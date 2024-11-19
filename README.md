@@ -36,3 +36,8 @@ in any way.
 ## Documentation
 
 Documentation was removed from the forked package to simplify maintenance. [Please refer to the original package for documentation](https://react-dropzone.js.org/).
+
+## Changelog
+
+- `15.0.0` – Initial release (`react-dropzone` as of end of 2023)
+- `15.2.0` – Update `react-dropzone` as of end 2024
