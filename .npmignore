@@ -4,3 +4,5 @@ src/
 .nvmrc
 rollup.config.mjs
 yarn.lock
+.yarn/
+.yarnrc.yml
