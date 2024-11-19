@@ -21,9 +21,9 @@
   "scripts": {
     "clean": "rm -rf ./dist",
     "build": "npm run clean && rollup -c rollup.config.mjs",
-    "release:patch": "npm run build && npm version patch && yarn publish && git push",
-    "release:minor": "npm run build && npm version minor && yarn publish && git push",
-    "release:major": "npm run build && npm version major && yarn publish && git push"
+    "release:patch": "npm run build && npm version patch && npm publish && git push",
+    "release:minor": "npm run build && npm version minor && npm publish && git push",
+    "release:major": "npm run build && npm version major && npm publish && git push"
   },
   "keywords": [
     "react-component",
